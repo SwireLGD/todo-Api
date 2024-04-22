@@ -19,7 +19,7 @@ tasksRouter.post('/', auth, async (req, res, next) => {
         await task.save();
         return res.send(task);
     } catch (error) {
-        return res.status(400).send(error);
+        next(error);
     }
 });
 
@@ -35,7 +35,7 @@ tasksRouter.get('/', auth, async (req, res, next) => {
     }
 });
 
-tasksRouter.put('/:id', auth, async (req, res, next) => {
+tasksRouter.put('/:id', auth, async (req, res) => {
     const taskId = req.params.id;
     const user = (req as RequestWithUser).user;
 
