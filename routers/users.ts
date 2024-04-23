@@ -1,6 +1,6 @@
 import express from "express";
 import User from "../models/User";
-import mongoose, {Error} from "mongoose";
+import mongoose from "mongoose";
 
 const usersRouter = express.Router();
 
